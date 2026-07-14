@@ -19,6 +19,11 @@ connectDB();
 app.use(express.json());
 app.set("trust proxy", 1);
 
+app.use((req, res, next) => {
+    console.log("req.secure:", req.secure, "| x-forwarded-proto:", req.headers["x-forwarded-proto"]);
+    next();
+});
+
 // Allow the frontend (served from a different origin/port) to send
 // cookies with its requests.
 app.use(

@@ -1,7 +1,4 @@
 require("dotenv").config();
-console.log("NODE_ENV VALUE:", process.env.NODE_ENV);
-console.log("CLIENT_ORIGIN VALUE:", process.env.CLIENT_ORIGIN);
-
 
 const express = require("express");
 const cors = require("cors");
@@ -21,13 +18,7 @@ connectDB();
 app.use(express.json());
 app.set("trust proxy", 1);
 
-app.use((req, res, next) => {
-    console.log("req.secure:", req.secure, "| x-forwarded-proto:", req.headers["x-forwarded-proto"]);
-    next();
-});
-
-// Allow the frontend (served from a different origin/port) to send
-// cookies with its requests.
+// Allow the frontend to send cookies with its requests.
 app.use(
     cors({
         origin: process.env.CLIENT_ORIGIN,
@@ -42,13 +33,16 @@ app.use(
         saveUninitialized: false,
         store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
         cookie: {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-    maxAge: 1000 * 60 * 60 * 24 * 7 // 7 days
-}
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+            maxAge: 1000 * 60 * 60 * 24 * 7 // 7 days
+        }
     })
 );
+
+// Serve the frontend files (html, css, js, images) from the public folder
+app.use(express.static("public"));
 
 app.get("/api/health", (req, res) => {
     res.json({ status: "ok" });
@@ -66,9 +60,6 @@ app.use("/api", (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.get("/", (req, res) => {
-  res.send("Backend is running");
-});
 app.listen(PORT, () => {
     console.log(`ShopEase API running on http://localhost:${PORT}`);
-    });
+});

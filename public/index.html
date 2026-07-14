@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase | Home</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>ShopEase</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart <span id="cart-count" class="cart-count">0</span></a></li>
+                <li>
+                    <span class="nav-auth-links" id="nav-auth">
+                        <a href="login.html">Login</a>
+                        <a href="register.html">Register</a>
+                    </span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to ShopEase</h1>
+            <p>Your One-Stop Online Shopping Destination.</p>
+            <a href="products.html" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured">
+        <h2>Featured Products</h2>
+
+        <div class="product-container">
+            <!-- Rendered dynamically by js/main.js -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ShopEase. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
+
+//>cd shopease-backend
+//npm install
+//npm start
+
+//another terminal
+//right click open index.html

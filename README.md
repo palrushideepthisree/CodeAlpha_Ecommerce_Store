@@ -141,7 +141,7 @@ Open `http://localhost:5000` in your browser — this serves both the frontend a
 ![Cart Page](screenshots/cart.png)
 
 ### Orders Page
-![Orders Page](screenshots/orders.png)
+![Orders Page](screenshots/order.png)
 
 ## 🔗 Links
 

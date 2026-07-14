@@ -1,4 +1,6 @@
 require("dotenv").config();
+console.log("NODE_ENV VALUE:", process.env.NODE_ENV);
+console.log("CLIENT_ORIGIN VALUE:", process.env.CLIENT_ORIGIN);
 
 
 const express = require("express");

@@ -36,17 +36,22 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
     try {
         const { email, password } = req.body;
+        console.log("LOGIN ATTEMPT:", { email, password });
 
         if (!email || !password) {
             return res.status(400).json({ message: "Email and password are required." });
         }
 
         const user = await User.findOne({ email: email.toLowerCase() });
+        console.log("USER FOUND:", user ? user.email : "NONE");
+
         if (!user) {
             return res.status(401).json({ message: "Invalid email or password." });
         }
 
         const isMatch = await user.comparePassword(password);
+        console.log("PASSWORD MATCH:", isMatch);
+
         if (!isMatch) {
             return res.status(401).json({ message: "Invalid email or password." });
         }

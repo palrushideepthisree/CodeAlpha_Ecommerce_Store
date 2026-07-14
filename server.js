@@ -17,6 +17,7 @@ const app = express();
 connectDB();
 
 app.use(express.json());
+app.set("trust proxy", 1);
 
 // Allow the frontend (served from a different origin/port) to send
 // cookies with its requests.
@@ -34,9 +35,11 @@ app.use(
         saveUninitialized: false,
         store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
         cookie: {
-            httpOnly: true,
-            maxAge: 1000 * 60 * 60 * 24 * 7 // 7 days
-        }
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    maxAge: 1000 * 60 * 60 * 24 * 7 // 7 days
+}
     })
 );
 

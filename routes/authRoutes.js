@@ -85,6 +85,8 @@ router.post("/logout", (req, res) => {
 
 // GET /api/auth/me — who is currently logged in, if anyone
 router.get("/me", async (req, res) => {
+    res.set("Cache-Control", "no-store");
+
     if (!req.session.userId) {
         return res.status(200).json({ user: null });
     }

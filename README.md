@@ -156,6 +156,7 @@ https://shopease-backend-5gfh.onrender.com
 **Deepthi Sree**
 
 GitHub: https://github.com/palrushideepthisree
+
 LinkedIn: https://www.linkedin.com/in/deepthisreepalrushi
 
 ---

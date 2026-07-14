@@ -101,6 +101,7 @@ body {
 .product-card {
     background: white;
     width: 280px;
+    max-width: 100%;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 5px 12px rgba(0,0,0,0.1);
@@ -145,6 +146,50 @@ footer {
 
     .hero-content p {
         font-size: 18px;
+    }
+
+    .featured,
+    .products {
+        padding: 30px 16px;
+    }
+
+    .page-title {
+        padding: 30px 16px 15px;
+    }
+
+    .page-title h1 {
+        font-size: 30px;
+    }
+
+    .product-container {
+        gap: 16px;
+    }
+
+    .cart {
+        padding: 30px 16px;
+    }
+
+    .cart h2 {
+        font-size: 28px;
+    }
+
+    .cart-summary {
+        text-align: center;
+    }
+
+    .product-details {
+        padding: 30px 16px;
+        gap: 25px;
+    }
+
+    .auth-container,
+    .checkout-container {
+        padding: 40px 16px;
+    }
+
+    .auth-box,
+    .checkout-box {
+        padding: 22px;
     }
 }
 
@@ -250,6 +295,7 @@ footer {
 
 .product-image img{
     width:400px;
+    max-width: 100%;
     border-radius:10px;
     box-shadow:0 5px 15px rgba(0,0,0,.2);
 }
@@ -289,8 +335,13 @@ footer {
     font-size:36px;
 }
 
+#cart-table-wrap {
+    overflow-x: auto;
+}
+
 .cart-table{
     width:100%;
+    min-width: 500px;
     border-collapse:collapse;
     background:#fff;
     box-shadow:0 5px 15px rgba(0,0,0,0.1);
@@ -326,6 +377,7 @@ footer {
 .auth-box {
     background: white;
     width: 400px;
+    max-width: 100%;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -379,6 +431,7 @@ footer {
 
 .checkout-box{
     width:500px;
+    max-width: 100%;
     background:#fff;
     padding:30px;
     border-radius:10px;
